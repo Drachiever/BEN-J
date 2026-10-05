@@ -193,7 +193,8 @@ export const initialSettings: StoreSettings = {
   localDeliveryFeeGHS: 25.00,
   shopNotice: 'Visit our Physical Shop: Accra - Awoshie (Opposite Anyaa Police Station) | Tel: +233 54 385 4239',
   announcementDiscount: 15,
-  isSiteWideDiscountActive: true
+  isSiteWideDiscountActive: true,
+  whatsappPhone: '+233 54 385 4239'
 };
 
 export const initialOrders: Order[] = [

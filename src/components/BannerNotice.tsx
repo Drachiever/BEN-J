@@ -24,7 +24,7 @@ export const BannerNotice: React.FC<BannerNoticeProps> = ({ settings }) => {
 
         <div className="hidden md:flex items-center gap-2 text-xs font-bold text-slate-900 border-l border-slate-950/20 pl-4">
           <Phone className="w-3.5 h-3.5" />
-          <span>Tel: +233 54 385 4239</span>
+          <span>Tel: {settings.whatsappPhone || '+233 54 385 4239'}</span>
         </div>
       </div>
     </div>

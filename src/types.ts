@@ -131,4 +131,5 @@ export interface StoreSettings {
   shopNotice: string;
   announcementDiscount: number; // e.g., site-wide discount %
   isSiteWideDiscountActive: boolean;
+  whatsappPhone: string;
 }

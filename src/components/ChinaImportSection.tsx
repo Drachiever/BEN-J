@@ -305,7 +305,7 @@ export const ChinaImportSection: React.FC<ChinaImportSectionProps> = ({
             </div>
 
             <a
-              href="https://wa.me/233543854239?text=Hello%20Ben-J%20Classic,%20I%20would%20like%20assistance%20with%20a%20China%20Visa%20Application."
+              href={`https://wa.me/${(settings?.whatsappPhone || '+233 54 385 4239').replace(/[+\s-()]/g, '')}?text=Hello%20Ben-J%20Classic,%20I%20would%20like%20assistance%20with%20a%20China%20Visa%20Application.`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold text-xs px-4 py-2.5 rounded-xl transition-all shadow-sm shrink-0 flex items-center gap-1.5"

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShoppingBag, PlaneTakeoff, Send, User, ShieldCheck, ShoppingCart, LogOut, PhoneCall } from 'lucide-react';
-import { User as UserType } from '../types';
+import { User as UserType, StoreSettings } from '../types';
 
 interface NavbarProps {
   activeTab: 'shop' | 'import' | 'transfer' | 'customer' | 'admin';
@@ -10,6 +10,7 @@ interface NavbarProps {
   user: UserType | null;
   onOpenAuth: () => void;
   onLogout: () => void;
+  settings?: StoreSettings;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -19,7 +20,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenCart,
   user,
   onOpenAuth,
-  onLogout
+  onLogout,
+  settings
 }) => {
   return (
     <header className="bg-slate-900 text-white sticky top-0 z-50 shadow-md border-b border-slate-800">
@@ -144,7 +146,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Direct WhatsApp Call Quick Link */}
           <a
-            href="https://wa.me/233543854239?text=Hello%20Ben-J%20Classic!%20I%20have%20an%20inquiry."
+            href={`https://wa.me/${(settings?.whatsappPhone || '+233 54 385 4239').replace(/[+\s-()]/g, '')}?text=Hello%20Ben-J%20Classic!%20I%20have%20an%20inquiry.`}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden lg:flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs px-3 py-2 rounded-lg transition-all shadow-sm"

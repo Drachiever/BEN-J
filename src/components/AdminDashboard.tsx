@@ -67,7 +67,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   const [discMinSpend, setDiscMinSpend] = useState<number>(100);
 
   // Settings Form State
-  const [settingsForm, setSettingsForm] = useState<StoreSettings>({ ...settings });
+  const [settingsForm, setSettingsForm] = useState<StoreSettings>({ whatsappPhone: '+233 54 385 4239', ...settings });
+
+  useEffect(() => {
+    setSettingsForm({ whatsappPhone: '+233 54 385 4239', ...settings });
+  }, [settings]);
 
   // Filter Search
   const [orderSearch, setOrderSearch] = useState('');
@@ -969,6 +973,55 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                   onChange={(e) => setSettingsForm({ ...settingsForm, localDeliveryFeeGHS: Number(e.target.value) })}
                   className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl font-bold text-slate-900"
                 />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block font-bold text-slate-700 mb-1">Express Air Shipping Rate ($ / KG)</label>
+                <input
+                  type="number"
+                  step="0.5"
+                  value={settingsForm.expressAirRateUSD || 0}
+                  onChange={(e) => setSettingsForm({ ...settingsForm, expressAirRateUSD: Number(e.target.value) })}
+                  className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl font-bold text-slate-900"
+                />
+              </div>
+
+              <div>
+                <label className="block font-bold text-slate-700 mb-1">WhatsApp/Support Phone Number</label>
+                <input
+                  type="text"
+                  value={settingsForm.whatsappPhone || ''}
+                  onChange={(e) => setSettingsForm({ ...settingsForm, whatsappPhone: e.target.value })}
+                  className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl font-bold text-slate-900"
+                  placeholder="+233 54 385 4239"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+              <div>
+                <label className="block font-bold text-slate-700 mb-1">Site-Wide Promo Discount (%)</label>
+                <input
+                  type="number"
+                  value={settingsForm.announcementDiscount || 0}
+                  onChange={(e) => setSettingsForm({ ...settingsForm, announcementDiscount: Number(e.target.value) })}
+                  className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl font-bold text-slate-900"
+                />
+              </div>
+
+              <div className="flex items-center gap-2 pt-4">
+                <input
+                  type="checkbox"
+                  id="isSiteWideDiscountActive"
+                  checked={!!settingsForm.isSiteWideDiscountActive}
+                  onChange={(e) => setSettingsForm({ ...settingsForm, isSiteWideDiscountActive: e.target.checked })}
+                  className="w-4 h-4 text-amber-500 border-slate-300 rounded focus:ring-amber-400"
+                />
+                <label htmlFor="isSiteWideDiscountActive" className="font-bold text-slate-700 select-none cursor-pointer">
+                  Activate Site-Wide Discount Banner
+                </label>
               </div>
             </div>
 

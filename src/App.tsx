@@ -33,7 +33,8 @@ export default function App() {
     localDeliveryFeeGHS: 25.00,
     shopNotice: 'Visit our Physical Shop: Accra - Awoshie (Opposite Anyaa Police Station) | Tel: +233 54 385 4239',
     announcementDiscount: 10,
-    isSiteWideDiscountActive: true
+    isSiteWideDiscountActive: true,
+    whatsappPhone: '+233 54 385 4239'
   });
 
   const [orders, setOrders] = useState<Order[]>([]);
@@ -166,6 +167,7 @@ export default function App() {
         user={user}
         onOpenAuth={() => setIsAuthOpen(true)}
         onLogout={handleLogout}
+        settings={settings}
       />
 
       {/* Notice Banner */}
@@ -257,7 +259,7 @@ export default function App() {
             </div>
             <div className="flex items-center gap-2 text-xs">
               <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>+233 54 385 4239</span>
+              <span>{settings.whatsappPhone || '+233 54 385 4239'}</span>
             </div>
             <div className="flex items-center gap-2 text-xs">
               <Mail className="w-4 h-4 text-amber-400 shrink-0" />
@@ -347,6 +349,7 @@ export default function App() {
       <ReceiptModal
         order={selectedReceiptOrder}
         onClose={() => setSelectedReceiptOrder(null)}
+        settings={settings}
       />
 
       <AuthModal

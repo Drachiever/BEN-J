@@ -187,7 +187,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 </button>
 
                 <a
-                  href={`https://wa.me/233543854239?text=${whatsappMessage}`}
+                  href={`https://wa.me/${(settings?.whatsappPhone || '+233 54 385 4239').replace(/[+\s-()]/g, '')}?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="py-3 px-4 rounded-xl font-bold text-xs bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-2 shadow-md transition-all hover:scale-[1.02]"

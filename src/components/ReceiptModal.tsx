@@ -1,13 +1,14 @@
 import React from 'react';
 import { X, Printer, CheckCircle, MapPin, Phone, Mail, ShieldCheck } from 'lucide-react';
-import { Order } from '../types';
+import { Order, StoreSettings } from '../types';
 
 interface ReceiptModalProps {
   order: Order | null;
   onClose: () => void;
+  settings?: StoreSettings;
 }
 
-export const ReceiptModal: React.FC<ReceiptModalProps> = ({ order, onClose }) => {
+export const ReceiptModal: React.FC<ReceiptModalProps> = ({ order, onClose, settings }) => {
   if (!order) return null;
 
   const handlePrint = () => {
@@ -60,7 +61,7 @@ export const ReceiptModal: React.FC<ReceiptModalProps> = ({ order, onClose }) =>
               </p>
               <p className="text-xs text-gray-500 flex items-center gap-1">
                 <Phone className="w-3 h-3 text-amber-500" />
-                +233 54 385 4239 | achieverbuabeng@gmail.com
+                {(settings?.whatsappPhone || '+233 54 385 4239')} | achieverbuabeng@gmail.com
               </p>
             </div>
 

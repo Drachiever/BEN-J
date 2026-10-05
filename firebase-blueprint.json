@@ -72,7 +72,8 @@
         "localDeliveryFeeGHS": { "type": "number" },
         "shopNotice": { "type": "string" },
         "announcementDiscount": { "type": "number" },
-        "isSiteWideDiscountActive": { "type": "boolean" }
+        "isSiteWideDiscountActive": { "type": "boolean" },
+        "whatsappPhone": { "type": "string" }
       }
     }
   },

@@ -77,7 +77,7 @@ function generateReceiptHtml(order: Order): string {
         <div class="header">
           <span class="badge">Official Purchase Receipt</span>
           <h2 style="margin: 12px 0 4px 0; color: #0f172a;">Ben-J Classic Venture</h2>
-          <p style="margin: 0; font-size: 13px; color: #64748b;">Accra - Awoshie (Opp. Anyaa Police Station) | Tel: +233 54 385 4239</p>
+          <p style="margin: 0; font-size: 13px; color: #64748b;">Accra - Awoshie (Opp. Anyaa Police Station) | Tel: ${settings.whatsappPhone || '+233 54 385 4239'}</p>
         </div>
         
         <div class="info-grid">

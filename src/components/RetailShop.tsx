@@ -132,7 +132,7 @@ export const RetailShop: React.FC<RetailShopProps> = ({
             </div>
             <div>
               <h4 className="font-bold text-slate-900 text-xs">Awoshie Physical Showroom</h4>
-              <p className="text-[11px] text-gray-500">Opp. Anyaa Police Station, Accra (+233 54 385 4239)</p>
+              <p className="text-[11px] text-gray-500">Opp. Anyaa Police Station, Accra ({settings.whatsappPhone || '+233 54 385 4239'})</p>
             </div>
           </div>
         </div>
