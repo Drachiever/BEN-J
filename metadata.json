@@ -1,0 +1,6 @@
+{
+  "name": "Ben-J Classic Venture - E-Commerce & Import Platform",
+  "description": "Comprehensive e-commerce platform with secure customer/admin auth, live inventory & discount manager, multi-channel payment processing, automated email receipts, China sourcing & RMB transfer portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

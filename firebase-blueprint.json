@@ -1,0 +1,97 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile in the application",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["customer", "admin"] },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "email", "role"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Store inventory product item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string", "enum": ["fashion", "electronics", "imports", "accessories"] },
+        "price": { "type": "number" },
+        "costPrice": { "type": "number" },
+        "originalPrice": { "type": "number" },
+        "discountPercent": { "type": "number" },
+        "stock": { "type": "number" },
+        "image": { "type": "string" },
+        "description": { "type": "string" },
+        "sku": { "type": "string" },
+        "specifications": { "type": "array" },
+        "featured": { "type": "boolean" },
+        "rating": { "type": "number" },
+        "reviewCount": { "type": "number" }
+      },
+      "required": ["id", "name", "category", "price", "stock", "image"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer purchase order",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "orderNumber": { "type": "string" },
+        "userId": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "subtotal": { "type": "number" },
+        "discountAmount": { "type": "number" },
+        "shippingFee": { "type": "number" },
+        "totalAmount": { "type": "number" },
+        "paymentMethod": { "type": "string" },
+        "paymentStatus": { "type": "string" },
+        "orderStatus": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "orderNumber", "userId", "totalAmount"]
+    },
+    "StoreSettings": {
+      "title": "StoreSettings",
+      "description": "Global store configuration and exchange rates",
+      "type": "object",
+      "properties": {
+        "rmbRateGHS": { "type": "number" },
+        "usdRateGHS": { "type": "number" },
+        "airFreightRateUSD": { "type": "number" },
+        "expressAirRateUSD": { "type": "number" },
+        "localDeliveryFeeGHS": { "type": "number" },
+        "shopNotice": { "type": "string" },
+        "announcementDiscount": { "type": "number" },
+        "isSiteWideDiscountActive": { "type": "boolean" }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "E-commerce product catalog"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer order records"
+    },
+    "/settings/store": {
+      "schema": "StoreSettings",
+      "description": "Global store configuration settings"
+    }
+  }
+}
